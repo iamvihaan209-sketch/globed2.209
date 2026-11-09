@@ -1740,7 +1740,7 @@ std::vector<uint8_t> NetworkManagerImpl::computeUident(int accountId) {
 #endif
     wd.v5 = strlen(wd.v4);
 
-    auto sdir = utils::string::pathToString(Mod::get()->getSaveDir());
+    auto sdir = Mod::get()->getSaveDir().string();
     wd.v6 = sdir.c_str();
     wd.v7 = sdir.size();
 
