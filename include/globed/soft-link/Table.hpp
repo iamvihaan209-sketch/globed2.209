@@ -102,7 +102,7 @@ struct PlayerSubtable : VTable {
 
 struct MiscSubtable : VTable {
     MiscSubtable();
-    GLOBED_VTABLE_FUNC(fullPathForFilename, gd::string, std::string_view, bool);
+    GLOBED_VTABLE_FUNC(fullPathForFilename, std::string, std::string_view, bool);
 };
 
 // Since v2.2.0 (entire table is null before)

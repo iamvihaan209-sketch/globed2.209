@@ -596,7 +596,7 @@ static void appendToBuf(std::array<char, N>& buf, size_t& offset, std::string_vi
 }
 
 // this function scares me
-gd::string PreloadManager::fullPathForFilename(std::string_view input, bool ignoreSuffix) {
+std::string PreloadManager::fullPathForFilename(std::string_view input, bool ignoreSuffix) {
     auto& fu = HookedFileUtils::get();
 
     if (input.empty()) {
@@ -607,13 +607,13 @@ gd::string PreloadManager::fullPathForFilename(std::string_view input, bool igno
     // we try to make this check as cheap as possible, so don't rely on std::filesystem or cocos
 #ifdef GEODE_IS_WINDOWS
     if (input.size() >= 3 && std::isalpha(input[0]) && input[1] == ':' && (input[2] == '/' || input[2] == '\\')) {
-        return gd::string{input};
+        return std::string{input};
     } else if (input.size() >= 2 && input[0] == '\\' && input[1] == '\\') {
-        return gd::string{input};
+        return std::string{input};
     }
 #else
     if (input.size() >= 1 && input[0] == '/') {
-        return gd::string{input.data(), input.size()};
+        return std::string{input.data(), input.size()};
     }
 #endif
 

@@ -175,7 +175,7 @@ void openUserProfile(int accountId, int userId, std::string_view username) {
     bool myself = accountId == singleton<GJAccountManager>()->m_accountID;
 
     if (!myself) {
-        singleton<GameLevelManager>()->storeUserName(userId, accountId, gd::string(username.data(), username.size()));
+        singleton<GameLevelManager>()->storeUserName(userId, accountId, std::string(username.data(), username.size()));
     }
 
     ProfilePage::create(accountId, myself)->show();

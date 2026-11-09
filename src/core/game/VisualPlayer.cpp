@@ -66,7 +66,7 @@ VisualPlayer::VisualPlayer() : PlayerObject(geode::ZeroConstructor, 0)
     m_gravityMod = 1.0f;
     new (&m_jumpPadRelated) decltype(m_jumpPadRelated)();
     new (&m_holdingButtons) decltype(m_holdingButtons)();
-    new (&m_currentRobotAnimation) gd::string("run");
+    new (&m_currentRobotAnimation) std::string("run");
 }
 
 bool VisualPlayer::init(GJBaseGameLayer* gameLayer, RemotePlayer* rp, CCNode* playerNode, bool isSecond, bool localPlayer) {
